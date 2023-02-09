@@ -90,16 +90,19 @@ IncludeTemplateLangFile(__FILE__);
 );?>
 			</div>
 		</div>
-		
-		<!--- // end header area --->
 		<div class="bc_breadcrumbs">
-			<ul>
-				<li><a href=""><span><?=GetMessage('Catalog')?></a></li>
-				<li><a href=""><?=GetMessage('Furniture')?></a></li>
-				<li><a href=""><?=GetMessage('Exhibitions_and_events')?></a></li>
-			</ul>
-			<div class="clearboth"></div>
-		</div>
+		<ul>
+		<!--- // end header area --->
+		<?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "nav", Array(
+	"PATH" => "",	// Путь, для которого будет построена навигационная цепочка (по умолчанию, текущий путь)
+		"SITE_ID" => "s1",	// Cайт (устанавливается в случае многосайтовой версии, когда DOCUMENT_ROOT у сайтов разный)
+		"START_FROM" => "0",	// Номер пункта, начиная с которого будет построена навигационная цепочка
+	),
+	false
+);?>
+</ul>
+<div class="clearboth"></div>
+</div>
 		<div class="main_container page">
 			<div class="mn_container">
 				<div class="mn_content">
