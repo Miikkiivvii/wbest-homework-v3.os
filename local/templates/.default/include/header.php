@@ -32,25 +32,16 @@ IncludeTemplateLangFile(__FILE__);
 					</tr>
 					<tr>
 						<td style="padding-top: 11px;">
-							<span class="hd_singin"><a id="hd_singin_but_open" href=""><?=GetMessage('Sign_in')?></a>
-							<div class="hd_loginform">
-								<span class="hd_title_loginform"><?=GetMessage('Sign_in')?></span>
-								<form name="" method="" action="">
-					
-									<input placeholder="Логин"  type="text">
-									<input  placeholder="Пароль"  type="password">			
-									<a href="/" class="hd_forgotpassword"><?=GetMessage('Forgot_your_password')?></a>
-									
-									<div class="head_remember_me" style="margin-top: 10px">
-										<input id="USER_REMEMBER_frm" name="USER_REMEMBER" value="Y" type="checkbox">
-										<label for="USER_REMEMBER_frm" title="Запомнить меня на этом компьютере"><?=GetMessage('Remember_me')?></label>
-									</div>				
-									<input value="Войти" name="Login" style="margin-top: 20px;" type="submit">
-									</form>
-								<span class="hd_close_loginform"><?=GetMessage('close')?></span>
-							</div>
-							</span><br>
-							<a href="" class="hd_signup"><?=GetMessage('Register')?></a>
+						<?$APPLICATION->IncludeComponent(
+	"bitrix:system.auth.form",
+	"",
+	Array(
+		"FORGOT_PASSWORD_URL" => "/user/",
+		"PROFILE_URL" => "/user/profil.php",
+		"REGISTER_URL" => "/user/registratsiya.php",
+		"SHOW_ERRORS" => "N"
+	)
+);?>
 						</td>
 					</tr>
 				</table>
